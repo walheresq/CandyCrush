@@ -1,0 +1,53 @@
+﻿body {
+    /*background-image: url("http://www.amphibiamagazine.com/wp-content/uploads/2014/09/13.jpg");*/
+    background-image: url("http://4.bp.blogspot.com/-DE4hlexkXPg/VK38VzzdFYI/AAAAAAAAACk/V0kuSZxe1cU/s1600/MAR.jpg");
+}
+
+#ele {
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: separate;
+}
+
+.rojo {
+    background-image: url('img/shark48.png');
+}
+
+.azul {
+    background-image: url('img/nemo48.png');
+}
+
+.amarillo {
+    background-image: url('img/turtle48.png');
+}
+
+.naranja {
+    background-image: url('img/star48.png');
+}
+
+.verde {
+    background-image: url('img/dory48.png');
+}
+
+td {
+    width: 50px;
+    height: 50px;
+    border: solid 2px #C0C0C0;
+    border-radius: 4px;
+}
+
+    td:hover {
+        background-color: #4169E1;
+    }
+
+
+#tableCandy {
+    margin-top: 5%;
+    border: solid 5px 	#696969;
+    border-radius: 10px;
+    border-spacing: 2px;
+}
