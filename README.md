@@ -7,4 +7,5 @@ Walter Hernandez E.
 Jose Vargas A.
 # 
 Bryan 
-# Repositorio anterior https://github.com/Josevayac/CandyCrushWMB.git
+# 
+Repositorio anterior https://github.com/Josevayac/CandyCrushWMB.git
