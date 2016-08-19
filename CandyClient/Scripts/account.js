@@ -11,30 +11,30 @@
     self.registerPassword = ko.observable();
     self.registerPassword2 = ko.observable();
 
-    self.loginEmail = ko.observable();
+    self.loginUser = ko.observable();
     self.loginPassword = ko.observable();
 
     function showError(jqXHR) {
         self.result(jqXHR.status + ': ' + jqXHR.statusText);
     }
 
-    //self.callApi = function () {
-    //    self.result('');
+    self.callApi = function () {
+        self.result('');
 
-    //    var token = sessionStorage.getItem(tokenKey);
-    //    var headers = {};
-    //    if (token) {
-    //        headers.Authorization = 'Bearer ' + token;
-    //    }
+        var token = sessionStorage.getItem(tokenKey);
+        var headers = {};
+        if (token) {
+            headers.Authorization = 'Bearer ' + token;
+        }
 
-    //    $.ajax({
-    //        type: 'GET',
-    //        url: '/api/values',
-    //        headers: headers
-    //    }).done(function (data) {
-    //        self.result(data);
-    //    }).fail(showError);
-    //}
+        $.ajax({
+            type: 'POST',
+            url: apiURL + '/partida',
+            headers: headers
+        }).done(function (data) {
+            self.result(data);
+        }).fail(showError);
+    }
 
     self.register = function () {
         self.result('');
@@ -61,13 +61,13 @@
 
         var loginData = {
             grant_type: 'password',
-            username: self.loginEmail(),
+            username: self.loginUser(),
             password: self.loginPassword()
         };
 
         $.ajax({
             type: 'POST',
-            url: '/Token',
+            url: "http://localhost:7659" + '/Token',
             data: loginData
         }).done(function (data) {
             self.user(data.userName);

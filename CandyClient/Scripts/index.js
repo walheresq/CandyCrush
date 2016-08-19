@@ -5,12 +5,33 @@
     var movimiento2 = -1;
     var apiURL = "http://localhost:7659/api/";
     var partida = -1;
+    var tokenKey = 'accessToken';
+    var token = sessionStorage.getItem(tokenKey);
+    var headers = {};
 
-    $.post(apiURL + "partida", { id: '0' })
-                .done(function (data) {
-                    partida = data.id;
-                    Paint(data);
-                });
+    if (token) {
+        headers.Authorization = 'Bearer ' + token;
+    }
+
+    function showError(jqXHR) {
+        self.result(jqXHR.status + ': ' + jqXHR.statusText);
+    }
+
+    //$.post(apiURL + "partida", { id: '0' })
+    //            .done(function (data) {
+    //                partida = data.id;
+    //                Paint(data);
+    //            });
+
+    $.ajax({
+        type: 'POST',
+        url: apiURL + '/partida',
+        data: { id: '0' },
+        headers: headers
+    }).done(function (data) {
+        partida = data.id;
+        Paint(data);
+    }).fail(showError);
 
 
     $("body").on("click", "td", function () {
@@ -34,6 +55,7 @@
                 url: apiURL + "partida/" + partida,
                 type: 'PUT',
                 data: { 'usuario': 0, 'movimiento1': movimiento1, 'movimiento2': movimiento2 },
+                headers: headers,
                 success: function (data) {
                     Paint(data);
                     movimiento1 = -1;

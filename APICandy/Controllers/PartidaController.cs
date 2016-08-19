@@ -12,6 +12,7 @@ using static CandyApi.Entity.Elemento;
 
 namespace CandyApi.Controllers
 {
+    [Authorize]
     public class PartidaController : ApiController
     {
         static Partida oPartida;
